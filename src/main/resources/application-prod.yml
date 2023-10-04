@@ -1,0 +1,9 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:postgresql://localhost:5432/users-demo
+    username: postgres
+    password:
+    driver-class-name: org.postgresql.Driver
