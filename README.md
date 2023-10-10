@@ -1,4 +1,4 @@
-#  💻 ARCHETYPE SPRINGBOOT 💻
+#  💻 ARCHETYPE SPRINGBOOT HEXAGONAL 💻
 
 ![ASF Jira](https://img.shields.io/endpoint?url=https%3A%2F%2Fmaven.apache.org%2Fbadges%2Fasf_jira-ARCHETYPE.json)
 ![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/apache/maven.svg?label=License)
@@ -15,7 +15,7 @@ capas de la aplicación y promover buenas prácticas.
 ## 🚀 Como usar este arquetipo
 
 1. Instala Java SE Development Kit 11.0.19. [Downloader](https://www.oracle.com/co/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox)
-2. Clona este repositorio: `git clone https://github.com/pragma/webflux-archetype.git`
+2. Clona este repositorio: `git clone https://gitlab.com/pragma-arquetipos/backend/archetype-springboot.git`
 3. Ejecute algunas [tareas del ciclo de vida de Gradle](https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks) en orden para verificar que todo este OK:
     1. Cree [el JAR del proyecto](https://docs.gradle.org/current/userguide/java_plugin.html#sec:jar) y otros artefactos del proyecto:
        `./gradlew assemble --warning-mode all`
@@ -118,7 +118,6 @@ El esqueleto utiliza la siguiente estructura de carpetas::
   en la capa de dominio cree una interfaz de persistencePort en la carpeta ports-out y la implementa en
   la clase con los metodos de feing
 
-* Para la creación automática de los beans agregue en cada UseCase la anotación @Component
 
 ⚠️ **No te conformes con lo que hay; si hay algo innecesario, cámbiele el nombre o elimínelo.**
 

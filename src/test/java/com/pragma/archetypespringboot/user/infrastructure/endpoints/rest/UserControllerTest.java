@@ -45,7 +45,7 @@ class UserControllerTest {
         assertEquals(201,result.getResponse().getStatus());
         String content = result.getResponse().getContentAsString();
 
-        assertThat(content).contains("Carlos").contains("2005-02-18").contains("123495");
+        assertThat(content).contains("Carlos").contains("2005-02-18").contains("12385495");
     }
     @Test
     void testGetUserByIdEndpoint() throws Exception {
@@ -58,7 +58,7 @@ class UserControllerTest {
                 .andReturn();
 
         String content = result.getResponse().getContentAsString();
-        assertThat(content).contains("Carlos").contains("2005-02-18").contains("123495");
+        assertThat(content).contains("Carlos").contains("2005-02-18").contains("12385495");
     }
 
 }
