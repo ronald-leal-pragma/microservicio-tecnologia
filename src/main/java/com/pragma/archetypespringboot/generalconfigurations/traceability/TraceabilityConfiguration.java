@@ -1,4 +1,4 @@
-package com.pragma.archetypespringboot.user.infrastructure.configurations.traceability;
+package com.pragma.archetypespringboot.generalconfigurations.traceability;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -26,7 +26,7 @@ public class TraceabilityConfiguration {
     private final ParametersApplicationConfiguration parametersApplicationConfiguration;
     private final Environment environment;
 
-    @Pointcut("within(com.pragma.archetypespringboot.user.application.services.impl.*) || within(com.pragma.archetypespringboot.user.domain.usecases.*)")
+    @Pointcut("within(com.pragma.archetypespringboot.*.application.services.impl.*) || within(com.pragma.archetypespringboot.*.domain.usecases.*)")
     public void allPublicMethods() {
 
     }

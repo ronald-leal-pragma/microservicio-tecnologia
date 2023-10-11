@@ -113,10 +113,13 @@ El esqueleto utiliza la siguiente estructura de carpetas::
     - Aplicación de dominio.
     - Dominio de infraestructura.
 
-* si desea conectar microservicios hagalo en la infraestructura-adapters-external-feing y las url
+* Si desea conectar microservicios hagalo en la infraestructura-adapters-external-feing y las url
   de los microservicios para conectar el cliente hagalo con variables de entorno en el .yml,
   en la capa de dominio cree una interfaz de persistencePort en la carpeta ports-out y la implementa en
   la clase con los metodos de feing
+
+* En la clase BeanImportSelector en generalConfigurations importa 3 variables del main, las cuales hacen referencia a 
+los paquetes que spring boot necesita mapear para genenerar los beans de manera automatica
 
 
 ⚠️ **No te conformes con lo que hay; si hay algo innecesario, cámbiele el nombre o elimínelo.**

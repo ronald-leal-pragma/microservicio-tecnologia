@@ -1,4 +1,4 @@
-package com.pragma.archetypespringboot.user.infrastructure.configurations.traceability;
+package com.pragma.archetypespringboot.generalconfigurations.traceability;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;

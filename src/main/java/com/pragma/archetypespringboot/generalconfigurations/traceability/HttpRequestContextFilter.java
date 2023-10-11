@@ -1,4 +1,4 @@
-package com.pragma.archetypespringboot.user.infrastructure.configurations.traceability;
+package com.pragma.archetypespringboot.generalconfigurations.traceability;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -15,10 +15,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
-import static com.pragma.archetypespringboot.user.infrastructure.configurations.traceability.UtilConverter.toMapConverter;
-import static com.pragma.archetypespringboot.user.infrastructure.configurations.traceability.UtilGenerateUnique.generateGeneralRequestId;
-import static com.pragma.archetypespringboot.user.infrastructure.configurations.traceability.UtilGenerateUnique.generateRequestIdMicroservice;
-import static com.pragma.archetypespringboot.user.infrastructure.configurations.traceability.UtilToken.usernameByToken;
+import static com.pragma.archetypespringboot.generalconfigurations.traceability.UtilConverter.toMapConverter;
+import static com.pragma.archetypespringboot.generalconfigurations.traceability.UtilGenerateUnique.generateGeneralRequestId;
+import static com.pragma.archetypespringboot.generalconfigurations.traceability.UtilGenerateUnique.generateRequestIdMicroservice;
+import static com.pragma.archetypespringboot.generalconfigurations.traceability.UtilToken.usernameByToken;
 
 @Component
 @Slf4j

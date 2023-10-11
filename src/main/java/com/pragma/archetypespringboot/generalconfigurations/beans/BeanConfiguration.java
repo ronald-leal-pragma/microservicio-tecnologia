@@ -1,4 +1,4 @@
-package com.pragma.archetypespringboot.user.infrastructure.configurations.beans;
+package com.pragma.archetypespringboot.generalconfigurations.beans;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
