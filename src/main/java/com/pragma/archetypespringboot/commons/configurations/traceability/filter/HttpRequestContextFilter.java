@@ -1,5 +1,8 @@
-package com.pragma.archetypespringboot.generalconfigurations.traceability;
+package com.pragma.archetypespringboot.commons.configurations.traceability.filter;
 
+import com.pragma.archetypespringboot.commons.configurations.traceability.http.HttpRequestContextHolder;
+import com.pragma.archetypespringboot.commons.configurations.traceability.http.RequestContextDto;
+import com.pragma.archetypespringboot.commons.configurations.traceability.http.RequestWrapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,10 +18,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
-import static com.pragma.archetypespringboot.generalconfigurations.traceability.UtilConverter.toMapConverter;
-import static com.pragma.archetypespringboot.generalconfigurations.traceability.UtilGenerateUnique.generateGeneralRequestId;
-import static com.pragma.archetypespringboot.generalconfigurations.traceability.UtilGenerateUnique.generateRequestIdMicroservice;
-import static com.pragma.archetypespringboot.generalconfigurations.traceability.UtilToken.usernameByToken;
+import static com.pragma.archetypespringboot.commons.configurations.traceability.util.UtilConverter.toMapConverter;
+import static com.pragma.archetypespringboot.commons.configurations.traceability.util.UtilGenerateUnique.generateGeneralRequestId;
+import static com.pragma.archetypespringboot.commons.configurations.traceability.util.UtilGenerateUnique.generateRequestIdMicroservice;
+import static com.pragma.archetypespringboot.commons.configurations.traceability.util.UtilToken.usernameByToken;
 
 @Component
 @Slf4j

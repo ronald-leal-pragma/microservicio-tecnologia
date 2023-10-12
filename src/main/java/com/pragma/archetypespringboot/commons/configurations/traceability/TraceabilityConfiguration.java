@@ -1,5 +1,10 @@
-package com.pragma.archetypespringboot.generalconfigurations.traceability;
+package com.pragma.archetypespringboot.commons.configurations.traceability;
 
+import com.pragma.archetypespringboot.commons.configurations.traceability.http.HttpRequestContextHolder;
+import com.pragma.archetypespringboot.commons.configurations.traceability.filter.ParametersApplicationConfiguration;
+import com.pragma.archetypespringboot.commons.configurations.traceability.filter.TraceabilityDto;
+import com.pragma.archetypespringboot.commons.configurations.traceability.util.TraceabilityType;
+import com.pragma.archetypespringboot.commons.configurations.traceability.http.RequestContextDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.JoinPoint;

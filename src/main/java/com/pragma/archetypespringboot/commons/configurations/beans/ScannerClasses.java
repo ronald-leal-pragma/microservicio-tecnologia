@@ -1,4 +1,4 @@
-package com.pragma.archetypespringboot.generalconfigurations.beans;
+package com.pragma.archetypespringboot.commons.configurations.beans;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AssignableTypeFilter;

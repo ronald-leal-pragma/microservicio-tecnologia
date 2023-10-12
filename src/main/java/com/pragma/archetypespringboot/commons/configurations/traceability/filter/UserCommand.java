@@ -1,4 +1,4 @@
-package com.pragma.archetypespringboot.generalconfigurations.traceability;
+package com.pragma.archetypespringboot.commons.configurations.traceability.filter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

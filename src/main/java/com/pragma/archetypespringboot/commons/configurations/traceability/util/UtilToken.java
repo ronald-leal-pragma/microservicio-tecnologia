@@ -1,7 +1,8 @@
-package com.pragma.archetypespringboot.generalconfigurations.traceability;
+package com.pragma.archetypespringboot.commons.configurations.traceability.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import com.pragma.archetypespringboot.commons.configurations.traceability.filter.UserCommand;
 import lombok.experimental.UtilityClass;
 import org.apache.tomcat.util.codec.binary.Base64;
 

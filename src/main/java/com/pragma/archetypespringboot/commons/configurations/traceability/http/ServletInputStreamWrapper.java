@@ -1,4 +1,4 @@
-package com.pragma.archetypespringboot.generalconfigurations.traceability;
+package com.pragma.archetypespringboot.commons.configurations.traceability.http;
 
 import jakarta.servlet.ReadListener;
 import jakarta.servlet.ServletInputStream;

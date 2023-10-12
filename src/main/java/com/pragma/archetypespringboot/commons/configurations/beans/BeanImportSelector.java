@@ -1,4 +1,4 @@
-package com.pragma.archetypespringboot.generalconfigurations.beans;
+package com.pragma.archetypespringboot.commons.configurations.beans;
 
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
