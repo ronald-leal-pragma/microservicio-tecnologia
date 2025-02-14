@@ -1,21 +1,17 @@
 spring:
   config:
     activate:
-      on-profile: local
+      on-profile: local  # Mantiene el perfil 'local'
   datasource:
-    driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:usersdb
-    username: sa
+    driver-class-name: com.mysql.cj.jdbc.Driver  # Asegurar que el nombre de la propiedad es correcto
+    url: jdbc:mysql://localhost:3306/''?serverTimezone=America/Bogota  # URL de conexión
+    username: root
     password:
-    h2:
-      console:
-        enabled: true
-    hibernate:
-      ddl-auto: update
-    jpa:
+  jpa:
+    properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-      show-sql: true
-  enabled:
-    traceability:
-      allMethods: ${ENABLED_TRACEABILITY_ALL_METHODS:true}
+        jdbc:
+          time_zone: America/Bogota
+    hibernate:
+      ddl-auto: update  # O 'none' si no quieres que Hibernate modifique la BD
+    database-platform: org.hibernate.dialect.MySQL8Dialect

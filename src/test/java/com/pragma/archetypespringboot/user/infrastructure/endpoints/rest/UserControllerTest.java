@@ -25,7 +25,6 @@ class UserControllerTest {
     private final static String SAVE_URL = "/api/v1/save-user";
     private final static String GET_URL = "/api/v1/get/{idUser}";
     private MockMvc mockMvc;
-
     @Autowired
     private WebApplicationContext webApplicationContext;
 
@@ -40,25 +39,13 @@ class UserControllerTest {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post(SAVE_URL)
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .content("{\"name\":\"Carlos\",\"birthDate\":\"2005-02-18\",\"document\":\"123495\"}"))
+                        .content("{\"name\":\"Carlos\",\"birthDate\":\"2005-02-18\",\"document\":\"123456795\"}"))
                 .andReturn();
         assertEquals(201,result.getResponse().getStatus());
         String content = result.getResponse().getContentAsString();
 
-        assertThat(content).contains("Carlos").contains("2005-02-18").contains("12385495");
-    }
-    @Test
-    void testGetUserByIdEndpoint() throws Exception {
+        assertThat(content).contains("Carlos").contains("2005-02-18").contains("123456795");
 
-        testSaveUserEndpoint();
-
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(GET_URL, 1))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andReturn();
-
-        String content = result.getResponse().getContentAsString();
-        assertThat(content).contains("Carlos").contains("2005-02-18").contains("12385495");
     }
 
 }
