@@ -2,6 +2,6 @@ spring:
   profiles:
     active: local
   application:
-    name: ARCHETYPE-SPRING-BOOT
+    name: MICROSERVICIO-TECNOLOGIA
   platform:
     name: A

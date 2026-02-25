@@ -1,17 +1,19 @@
 spring:
+  sql:
+    init:
+      mode: always
   config:
     activate:
-      on-profile: local  # Mantiene el perfil 'local'
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver  # Asegurar que el nombre de la propiedad es correcto
-    url: jdbc:mysql://localhost:3306/''?serverTimezone=America/Bogota  # URL de conexión
-    username: root
-    password:
-  jpa:
-    properties:
-      hibernate:
-        jdbc:
-          time_zone: America/Bogota
-    hibernate:
-      ddl-auto: update  # O 'none' si no quieres que Hibernate modifique la BD
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+      on-profile: local
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/tecnologia_db?serverTimezone=America/Bogota
+    username: user_tecno
+    password: 18566621
+    pool:
+      enabled: true
+      initial-size: 5
+      max-size: 20
+      max-idle-time: 30m
+      validation-query: SELECT 1
+server:
+  port: 8081

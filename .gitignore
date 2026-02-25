@@ -35,3 +35,17 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Archivos temporales y de documentación local
+*.txt
+*.drawio
+*.png
+*.jpg
+*.jpeg
+
+# O si prefieres ser más específico:
+BAcklog.txt
+Reto Reactivo.txt
+tecnologias.txt
+Arquitectura.drawio
+diagram.png

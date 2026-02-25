@@ -1,5 +1,5 @@
-FROM {JAVA_JDK_VERSION}
-EXPOSE {PORT}
-ADD ./build/libs/*.jar {EXECUTE_JAR_NAME}.jar
-ENV PROFILE = {YOUR_PROFILE}
-ENTRYPOINT ["java","-Dspring.profiles.active=${PROFILE}","-jar","/apiapp.jar"]
+FROM openjdk:19-jdk-slim
+EXPOSE 8080
+COPY ./build/libs/*.jar app.jar
+ENV PROFILE=local
+ENTRYPOINT ["java","-Dspring.profiles.active=${PROFILE}","-jar","/app.jar"]
