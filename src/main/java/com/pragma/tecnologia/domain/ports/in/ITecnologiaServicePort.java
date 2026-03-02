@@ -6,4 +6,5 @@ import reactor.core.publisher.Mono;
 public interface ITecnologiaServicePort {
     Mono<Tecnologia> saveTecnologia(Tecnologia tecnologia);
     Mono<Tecnologia> getTecnologiaById(Long id);
+    Mono<Void> deleteTecnologia(Long id);
 }

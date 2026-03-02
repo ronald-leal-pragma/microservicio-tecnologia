@@ -1,7 +1,7 @@
 package com.pragma.tecnologia.tecnologia.infrastructure.endpoints.web;
 
-import com.pragma.tecnologia.application.dtos.requests.TecnologiaRequest;
-import com.pragma.tecnologia.application.mappers.TecnologiaMapper;
+import com.pragma.tecnologia.infrastructure.requests.TecnologiaRequest;
+import com.pragma.tecnologia.infrastructure.mappers.TecnologiaMapper;
 import com.pragma.tecnologia.domain.models.Tecnologia;
 import com.pragma.tecnologia.domain.ports.in.ITecnologiaServicePort;
 import com.pragma.tecnologia.infrastructure.web.TecnologiaHandler;

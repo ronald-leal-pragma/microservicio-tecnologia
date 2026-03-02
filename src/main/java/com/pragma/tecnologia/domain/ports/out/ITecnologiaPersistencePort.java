@@ -7,4 +7,5 @@ public interface ITecnologiaPersistencePort {
     Mono<Tecnologia> save(Tecnologia tecnologia);
     Mono<Tecnologia> findByName(String nombre);
     Mono<Tecnologia> getTecnologiaById(Long id);
+    Mono<Void> deleteTecnologia(Long id);
 }
