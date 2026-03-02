@@ -1,103 +1,51 @@
-#  💻 MICROSERVICIO TECNOLOGIA 💻
+# Microservicio Tecnología
 
-![ASF Jira](https://img.shields.io/endpoint?url=https%3A%2F%2Fmaven.apache.org%2Fbadges%2Fasf_jira-ARCHETYPE.json)
-![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/apache/maven.svg?label=License)
-![Jenkins Status](https://img.shields.io/jenkins/s/https/ci-maven.apache.org/job/Maven/job/maven-box/job/maven-archetype/job/master.svg?)
+## Descripción
+Microservicio para la gestión del catálogo de tecnologías. Implementa arquitectura hexagonal con Spring WebFlux.
 
-## 📚 Descripción
+## Tecnologías
+- Java 17
+- Spring Boot 3.2.1
+- Spring WebFlux (Programación Reactiva)
+- R2DBC MySQL
+- Gradle 8.5
+- Lombok
+- MapStruct
 
-Este proyecto es un arquetipo que sigue un objetivo específico.
-Es una estructura organizada para facilitar el desarrollo de aplicaciones Spring Boot. Se usa una arquitecura
-hexagonal que implementa slicing vertical enfocado a microservicios.
-La estructura del proyecto está diseñada para separar claramente los diferentes
-capas de la aplicación y promover buenas prácticas.
+## Puerto
+**8081**
 
-## 🚀 Como usar este arquetipo
+## API Endpoints
 
-1. Instala Java SE Development Kit 11.0.19. [Downloader](https://www.oracle.com/co/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox)
-2. Clona este repositorio: `git clone https://gitlab.com/pragma-arquetipos/backend/archetype-springboot.git`
-3. Ejecute algunas [tareas del ciclo de vida de Gradle](https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks) en orden para verificar que todo este OK:
-    1. Cree [el JAR del proyecto](https://docs.gradle.org/current/userguide/java_plugin.html#sec:jar) y otros artefactos del proyecto:
-       `./gradlew assemble --warning-mode all`
-    2. Ejecute las tareas de verificación de pruebas y complementos:
-       `./gradlew check --warning-mode all`
-    3. Ejecute el punto de entrada de la aplicacion principal:
-       `./gradlew build`
-4. ¡Empieza el desarrollo!
+### Tecnologías
+- `POST /api/tecnologia` - Crear nueva tecnología
+- `GET /api/tecnologia/{id}` - Obtener tecnología por ID
+- `DELETE /api/tecnologia/{id}` - Eliminar tecnología
 
+## Ejecución
 
-## 📁 Estructura del proyecto
+```bash
+# Compilar
+./gradlew clean build
 
-El esqueleto utiliza la siguiente estructura de carpetas::
+# Ejecutar
+./gradlew bootRun
 
-**module**
-- **application**: Capa de aplicación para DTO controladores.
-    - **dtos**: Definición de peticiones(requests) y respuestas(responses).
-        - **requests**: Formatos de recepción de información que el controlador recibirá.
-        - **responses**: Formato de respuesta que se mostrará como respuesta del controlador.
-    - **servicehandler**: Controladores y manipuladores de peticiones.
-    - **dtomapper**: Mapeadores para convertir entre objetos de dominio y DTOs.
-    - **exception**: Generar y manejar excepciones para el controlador.
+# Ejecutar tests
+./gradlew test
+```
 
-- **domain**: Lógica de dominio y entidades comerciales.
-    - **exceptions**: Generar y manejar excepciones para la lógica de dominio.
-    - **models**: Modelos de datos de dominio
-        - **ports**: Puertos de aplicación.
-            - **in**: Puertos de entrada para casos de uso estos conectan con los servicios.
-            - **out**: Puertos de salida para casos de uso estos conectan con los adapter.
+## Configuración Base de Datos
+Editar `src/main/resources/application.properties`:
 
-    - **usecases**: Casos de uso de la aplicación aqui esta la lógica.
-    - **utils**: Utilidades comunes.
-        - **constants**: Constantes de la aplicación.
-        - **validations**: Validaciones de datos.
+```properties
+spring.r2dbc.url=r2dbc:mysql://localhost:3306/tecnologia_db
+spring.r2dbc.username=root
+spring.r2dbc.password=tu_password
+```
 
-- **infrastructure**: Infraestructura de la aplicación.
-    - **adapters**: Adaptadores para conectarse con sistemas externos.
-        - **external**: Integraciones externas.
-        - **persistence**: Capa de persistencia.
-    - **configurations**: Configuraciones específicas de la infraestructura.
-    - **endpoints**: Comunicación de los endpoints.
-        - **rest**: Controladores y rutas para API REST.
-        - **soap**: Implementación de servicios SOAP.
-    - **entities**: Entidades de base de datos.
-    - **exceptionshandler**: Manejo de excepciones en la infraestructura.
-    - **mappers**: Mapeadores para transformar datos entre la aplicación y la infraestructura.
-    - **repositories**: Repositorios para acceder a datos.
-        - **mongodb**: Implementación de repositorios para MongoDB.
-        - **mysql**: Implementación de repositorios para MySQL.
-
-![img_1.png](diagram.png)
-
-## 📦 Dependencias por defecto
-
-* Springframework version 3.1.4:
-* Gradle 9.0.
-* JUnit 5.
-
-| Nombre                | Type           | Usage |
-|-----------------------|----------------| ---- |
-| data-jpa              | Implementation | ✔️   |
-| web                   | Implementation | ✔️   |
-| lombok                | CompileOnly    | ✔️   |
-| mysql-connector-j     | RuntimeOnly    | ✔️   |
-| postgresql            | RuntimeOnly    | ✔️   |
-| mapstruct             | implementation | ✔️   |
-| data-redis            | Implementation | ❌   |
-| security              | Implementation | ❌   |
-| netflix-eureka-client | Implementation | ❌   |
-| oauth2-client         | Implementation | ❌   |
-| data-mongodb          | Implementation | ❌   |
-| log4j2                | Implementation | ❌   |
-| graphql               | Implementation | ❌ |
-| junit-jupiter         | Test           | ✔️   |
-| junit-vintage         | Test           | ✔️   |
-| h2                    | Test           | ✔️   |
-
-> [Buscar más dependencias en gradle](https://docs.gradle.org/current/javadoc/allpackages-index.html)
-
-## 📢 Recomendaciones y tips para el uso.
-
-* Puede eliminar el archivo .gitkeep, no tiene funcionalidad de aplicación
+## Documentación API
+Swagger UI disponible en: `http://localhost:8081/webjars/swagger-ui/index.html`
 
 * En el dominio va la logica de negocio, validaciones y todo lo relacionado con las funcionalidades
   basicas, se espera que el dominio este aisaldo de varias tecnologias a excepción de Lombok
