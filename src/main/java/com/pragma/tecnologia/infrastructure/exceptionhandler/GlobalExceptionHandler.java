@@ -34,7 +34,7 @@ public class GlobalExceptionHandler implements WebExceptionHandler {
 
         return switch (ex) {
             case WebExchangeBindException webEx -> handleValidationException(webEx, exchange);
-            case IllegalArgumentException illegalEx -> handleBadRequest(illegalEx, exchange, "BAD_PARAMETERS");
+            case IllegalArgumentException illegalEx -> handleBadRequest(illegalEx, exchange);
             default -> {
                 String message = ex.getMessage() != null ? ex.getMessage() : "";
 
@@ -59,8 +59,8 @@ public class GlobalExceptionHandler implements WebExceptionHandler {
         return writeResponse(exchange, HttpStatus.CONFLICT, "CONFLICT", ex.getMessage());
     }
 
-    private Mono<Void> handleBadRequest(Throwable ex, ServerWebExchange exchange, String code) {
-        return writeResponse(exchange, HttpStatus.BAD_REQUEST, code, ex.getMessage());
+    private Mono<Void> handleBadRequest(Throwable ex, ServerWebExchange exchange) {
+        return writeResponse(exchange, HttpStatus.BAD_REQUEST, "BAD_PARAMETERS", ex.getMessage());
     }
 
     private Mono<Void> handleValidationException(WebExchangeBindException ex, ServerWebExchange exchange) {

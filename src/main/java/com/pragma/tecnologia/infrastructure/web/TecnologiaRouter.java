@@ -23,15 +23,10 @@ public class TecnologiaRouter {
     @Bean
     public RouterFunction<ServerResponse> tecnologiaRoutes(TecnologiaHandler handler) {
         return route()
-                .POST("/api/tecnologia",
-                        handler::saveTecnologia,
-                        docSaveTecnologia())
-                .GET("/api/tecnologia/{id}",
-                        handler::getTecnologiaById,
-                        docGetTecnologiaById())
-                .DELETE("/api/tecnologia/{id}",
-                        handler::deleteTecnologia,
-                        docDeleteTecnologia())
+                .POST("/api/tecnologia", handler::saveTecnologia, docSaveTecnologia())
+                .GET("/api/tecnologia", handler::getAllTecnologias, docGetAllTecnologias())
+                .GET("/api/tecnologia/{id}", handler::getTecnologiaById, docGetTecnologiaById())
+                .DELETE("/api/tecnologia/{id}", handler::deleteTecnologia, docDeleteTecnologia())
                 .build();
     }
 
@@ -52,6 +47,13 @@ public class TecnologiaRouter {
                 .parameter(parameterBuilder().in(ParameterIn.PATH).name("id").description("ID de la tecnología").example("123"))
                 .response(responseBuilder().responseCode("200").description("Operación exitosa"))
                 .response(responseBuilder().responseCode("404").description("Tecnología no encontrada"));
+    }
+
+    private Consumer<Builder> docGetAllTecnologias() {
+        return ops -> ops.tag(TAG_TECNOLOGIA)
+                .operationId("getAllTecnologias")
+                .summary("Listar todas las tecnologías")
+                .response(responseBuilder().responseCode("200").description("Lista de tecnologías"));
     }
 
     private Consumer<Builder> docDeleteTecnologia() {

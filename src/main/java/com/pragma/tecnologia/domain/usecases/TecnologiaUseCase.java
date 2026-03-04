@@ -5,6 +5,7 @@ import com.pragma.tecnologia.domain.ports.in.ITecnologiaServicePort;
 import com.pragma.tecnologia.domain.ports.out.ITecnologiaPersistencePort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Optional;
@@ -60,5 +61,21 @@ public class TecnologiaUseCase implements ITecnologiaServicePort {
                 })
                 .doOnSuccess(v -> log.info("UseCase: deleteTecnologia - Tecnología eliminada exitosamente"))
                 .doOnError(error -> log.error("UseCase: deleteTecnologia - Error: {}", error.getMessage()));
+    }
+
+    @Override
+    public reactor.core.publisher.Flux<Tecnologia> getAllTecnologias() {
+        return tecnologiaPersistencePort.findAll()
+                .doOnSubscribe(s -> log.info("UseCase: getAllTecnologias - Obteniendo todas las tecnologías"))
+                .doOnComplete(() -> log.info("UseCase: getAllTecnologias - Listado completo"))
+                .doOnError(error -> log.error("UseCase: getAllTecnologias - Error: {}", error.getMessage()));
+    }
+
+    @Override
+    public Flux<Tecnologia> getTecnologiasByIds(java.util.Set<Long> ids) {
+        log.info("UseCase: getTecnologiasByIds - Filtrando {} tecnologías", ids.size());
+        return tecnologiaPersistencePort.findAll()
+                .filter(tech -> ids.contains(tech.getId()))
+                .doOnComplete(() -> log.info("UseCase: getTecnologiasByIds - Filtrado completado"));
     }
 }
